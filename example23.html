@@ -1,0 +1,167 @@
+<!doctype html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="Content-type" content="text/html; charset=utf-8">
+  <title>Wealthica Example Add-on</title>
+  <style>
+
+    div.a {
+    text-align: center;
+    }
+
+    div.b {
+    text-align: left;
+    }
+
+    div.c {
+    text-align: right;
+    } 
+
+    div.d {
+    text-align: justify;
+    } 
+    
+    body { margin: 0; padding: 0; }
+    table, th, td {
+    border: 1px solid black;
+    border-collapse: collapse; }
+  </style>
+
+<style>
+body {font-family: Arial, Helvetica, sans-serif;}
+
+/* The Modal (background) */
+.modal {
+  display: none; /* Hidden by default */
+  position: fixed; /* Stay in place */
+  z-index: 1; /* Sit on top */
+  padding-top: 100px; /* Location of the box */
+  left: 0;
+  top: 0;
+  width: 100%; /* Full width */
+  height: 100%; /* Full height */
+  overflow: auto; /* Enable scroll if needed */
+  background-color: rgb(0,0,0); /* Fallback color */
+  background-color: rgba(0,0,0,0); /* Black w/ opacity */
+}
+
+/* Modal Content */
+.modal-content {
+  background-color: #fefefe;
+  margin: auto;
+  padding: 20px;
+  border: 1px solid #888;
+  width: 80%;
+}
+
+/* The Close Button */
+.close {
+  color: #aaaaaa;
+  float: right;
+  font-size: 28px;
+  font-weight: bold;
+}
+
+.close:hover,
+.close:focus {
+  color: #000;
+  text-decoration: none;
+  cursor: pointer;
+}
+</style>
+  
+  <script type="text/javascript" src="https://wealthica.github.io/wealthica.js/dist/addon.min.js"></script>
+  <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+  <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/underscore.js/1.9.1/underscore-min.js"></script>
+  <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.9.4/Chart.js"></script>
+  <script type="text/javascript" src="./my23.js"></script>
+</head>
+
+<body>
+
+
+  <div class="c">
+  <!-- Trigger/Open The Modal -->
+  <button id="statistics-button" text-align:"right">Statistics</button>
+  </div>
+
+<!-- The Modal -->
+<div id="myModal" class="modal">
+
+  <!-- Modal content -->
+  <div class="modal-content">
+    <span class="close">&times;</span>
+    <p id="modal-text">Empty Statistics</p>
+    <table id = "statisticsTable">
+    <thead>
+    <tr>
+      <th>Total</th>
+      <th>Wins</th>
+      <th>Losses</th>
+    </tr>
+    </thead>
+    <tr>
+      <td id="totaltx">100</td>
+      <td id="totalwtx">100</td>
+      <td id="totalltx">100</td>
+    </tr>
+    <tr>
+      <td id="totaltxsum">10</td>
+      <td id="totalwtxsum">10</td>
+      <td id="totalltxsum">10</td>
+    </tr>
+
+  </table>
+
+  </div>
+
+</div>
+
+  
+  <h3 id="txChartName"> Transaction Gains V23-1.</h3>
+  <canvas id="myChart" style="width:100%;max-width:700px"></canvas>
+  <p>
+    <div class="a">
+      <input type="radio" id="closed" value="Closed" name="txState">
+      <label for="closed">Closed</label>
+      <input type="radio" id="open" value="Open"  name="txState">
+      <label for="open">Open</label>
+      <input type="radio" id="incomplete" value="Incomplete"  name="txState">
+      <label for="incomplete">Incomplete</label>
+      <input type="radio" id="all" value="All"  name="txState">
+      <label for="all">All</label>
+      </div>
+  </p>
+  <p>
+    <button type="button" disabled="disabled" id="showHideTransactions">Show Transactions</button>
+  </p>
+
+  <div id="result"></div>
+
+  <div id="Parameters"></div>
+
+  <table id = "gainsTable">
+    <thead>
+    <tr>
+     <th colspan="7" id="txTableName"> Transactions </th>
+    </tr>
+    <tr>
+      <th>Symbol</th>
+      <th>Description</th>
+      <th># Tx</th>
+      <th style="text-align:left;" colspan="6">Transactions</th>
+    </tr>
+    <tr>
+      <th colspan="3"> </th>
+      <th style="text-align:center;">Date</th>
+      <th>Tx Type</th>
+      <th style="text-align:center;" >Amount</th>
+      <th>Quantity</th>
+    </tr>
+    </thead>
+  </table>
+
+  
+</body>
+</html>
